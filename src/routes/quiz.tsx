@@ -28,7 +28,7 @@ function Quiz() {
   const [picked, setPicked] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
-  const cur = QUESTIONS[i];
+  const cur = QUESTIONS[i] ?? QUESTIONS[0]!;
 
   const choose = (k: number) => { if (picked !== null) return; setPicked(k); if (k === cur.a) setScore((s) => s + 1); };
   const next = () => { if (i + 1 >= QUESTIONS.length) setFinished(true); else { setI(i + 1); setPicked(null); } };
